@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xuyanghn1994.github.io/"/>
-  <updated>2019-06-24T04:34:33.299Z</updated>
+  <updated>2019-06-24T04:41:38.586Z</updated>
   <id>https://xuyanghn1994.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>abc</title>
-    <link href="https://xuyanghn1994.github.io/2019/06/23/abc/"/>
-    <id>https://xuyanghn1994.github.io/2019/06/23/abc/</id>
+    <title>HelloWorld</title>
+    <link href="https://xuyanghn1994.github.io/2019/06/23/helloWorld/"/>
+    <id>https://xuyanghn1994.github.io/2019/06/23/helloWorld/</id>
     <published>2019-06-23T00:31:21.000Z</published>
-    <updated>2019-06-24T04:34:33.299Z</updated>
+    <updated>2019-06-24T04:41:38.586Z</updated>
     
     <summary type="html">
     
@@ -35,34 +35,6 @@
     
     </summary>
     
-    
-      <category term="abc" scheme="https://xuyanghn1994.github.io/tags/abc/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="https://xuyanghn1994.github.io/2019/06/22/hello-world/"/>
-    <id>https://xuyanghn1994.github.io/2019/06/22/hello-world/</id>
-    <published>2019-06-22T03:40:26.933Z</published>
-    <updated>2019-06-24T02:43:24.012Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;你好啊 我是许洋   你好 
-        
-      
-    
-    </summary>
-    
-      <category term="hello world" scheme="https://xuyanghn1994.github.io/categories/hello-world/"/>
-    
-    
-      <category term="hello world" scheme="https://xuyanghn1994.github.io/tags/hello-world/"/>
     
   </entry>
   
