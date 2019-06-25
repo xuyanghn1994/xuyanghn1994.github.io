@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[MySql面试题集锦(持续更新中)]]></title>
+    <url>%2F2019%2F06%2F25%2FMySql%E9%9D%A2%E8%AF%95%E9%A2%98%E9%9B%86%E9%94%A6-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E4%B8%AD%2F</url>
+    <content type="text"><![CDATA[①如何取出每科成绩的前三名###第一步 建表 ###CREATE TABLEtest_course(idvarchar(10) NOT NULL,classvarchar(1000) DEFAULT NULL,gradeint(100) DEFAULT NULL, PRIMARY KEY (id) ) ENGINE=InnoDB DEFAULT CHARSET=latin1 第二步 插入数据INSERT INTO test.test_courseVALUES (&#39;1&#39;,&#39;yuwen&#39;,&#39;100&#39;); INSERT INTO test.test_courseVALUES (&#39;10&#39;,&#39;yingyu&#39;,&#39;16&#39;); INSERT INTO test.test_courseVALUES (&#39;11&#39;,&#39;yingyu&#39;,&#39;85&#39;); INSERT INTO test.test_courseVALUES (&#39;12&#39;,&#39;yingyu&#39;,&#39;95&#39;); INSERT INTO test.test_courseVALUES (&#39;2&#39;,&#39;yuwen&#39;,&#39;80&#39;); INSERT INTO test.test_courseVALUES (&#39;3&#39;,&#39;shuxue&#39;,&#39;60&#39;); INSERT INTO test.test_courseVALUES (&#39;4&#39;,&#39;shuxue&#39;,&#39;100&#39;); INSERT INTO test.test_courseVALUES (&#39;5&#39;,&#39;shuxue&#39;,&#39;95&#39;); INSERT INTO test.test_courseVALUES (&#39;6&#39;,&#39;yuwen&#39;,&#39;85&#39;); INSERT INTO test.test_courseVALUES (&#39;7&#39;,&#39;shuxue&#39;,&#39;16&#39;); INSERT INTO test.test_courseVALUES (&#39;8&#39;,&#39;yuwen&#39;,&#39;15&#39;); INSERT INTO test.test_courseVALUES (&#39;9&#39;,&#39;yingyu&#39;,&#39;15&#39;); 第三步 查出每个科目的全部排名SELECT S1.*,(SELECT COUNT(1) FROM TEST.test_courseS2 WHERE S1.CLASS = S2.CLASS AND S2.GRADE &gt; S1.GRADE)+1 AS &quot;paiming&quot; FROM TEST.test_courseS1 ORDER BY S1.CLASS,paiming; 第四步 取出每个科目的前三名SELECT S1.*,(SELECT COUNT(1) FROM TEST.test_courseS2 WHERE S1.CLASS = S2.CLASS AND S2.GRADE &gt; S1.GRADE)+1 AS &quot;paiming&quot; FROM TEST.test_courseS1 HAVING paiming &lt;=3 ORDER BY S1.CLASS,paiming;]]></content>
+      <tags>
+        <tag>databases</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[HelloWorld]]></title>
     <url>%2F2019%2F06%2F23%2FhelloWorld%2F</url>
     <content type="text"><![CDATA[欢迎来到空城孤王的博客空城孤王 是一个非名校出身的半路出家的代码搬运工。 半路出家 在一个三流大学的自动化专业。大学学的都是一些计算机网络，模拟电路。整天与电路图打交道。一个意外的机会被忽悠去培训班学习Java开发。大四下学期开始面试，找工作。最终从日企和用友外包选择了用友外包。实习一个多月后感觉与自己的期望偏差太大，果断离职。面临一个尴尬的时间和地点。最后选择了数据路线做ETL开发。 ETL开发 ETL开发 百度上说是用来描述将数据从来源端经过萃取（extract）、转置（transform）、加载（load）至目的端的过程。但我做了差不多一年，只是一个数据的处理流程。 首先是数据的筛选，即入库阶段 然后是数据的处理，即表和过程的逻辑加工阶段 数据的展示，即报表，多维的展示阶段 工作总结在这差不多的一年时间了，Java开发忘了差不多了，数据库用的也不是很多。常用的还是可以写出来，难的不行。shell脚本也只是使用一些常用的命令，跑批流程也只是会用而已，反正又不需要我们来写。数据模型我们这些小弟也沾不到边。总之，以前会的现在可能还会，以前不会的现在还是不会。 下一步机会 首先要把之前欠下来的补上，包括知识和财务。然后一直鞭策自己，天道酬勤。 2019目标 一、驾照一定要拿到手，必须完成。 二、努力学习，摆脱掉这惨淡的人生。]]></content>
