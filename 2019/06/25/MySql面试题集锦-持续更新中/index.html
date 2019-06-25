@@ -86,7 +86,7 @@
 
 
 
-  <meta name="keywords" content="databases,">
+  <meta name="keywords" content="databases,MySQL,">
 
 
 
@@ -99,18 +99,18 @@
 
 
 
-<meta name="description" content="①如何取出每科成绩的前三名###第一步 建表 ###CREATE TABLEtest_course(idvarchar(10) NOT NULL,classvarchar(1000) DEFAULT NULL,gradeint(100) DEFAULT NULL,   PRIMARY KEY (id) ) ENGINE=InnoDB DEFAULT CHARSET=latin1 第二步 插入数据I">
-<meta name="keywords" content="databases">
+<meta name="description" content="①如何取出每科成绩的前三名第一步 建表CREATE TABLE test_course (   id varchar(10) NOT NULL,   class varchar(1000) DEFAULT NULL,  grade int(100) DEFAULT NULL,  PRIMARY KEY (id)) ENGINE=InnoDB DEFAULT CHARSET=latin1; 第二步">
+<meta name="keywords" content="databases,MySQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySql面试题集锦(持续更新中)">
 <meta property="og:url" content="https://xuyanghn1994.github.io/2019/06/25/MySql面试题集锦-持续更新中/index.html">
 <meta property="og:site_name" content="空城孤王">
-<meta property="og:description" content="①如何取出每科成绩的前三名###第一步 建表 ###CREATE TABLEtest_course(idvarchar(10) NOT NULL,classvarchar(1000) DEFAULT NULL,gradeint(100) DEFAULT NULL,   PRIMARY KEY (id) ) ENGINE=InnoDB DEFAULT CHARSET=latin1 第二步 插入数据I">
+<meta property="og:description" content="①如何取出每科成绩的前三名第一步 建表CREATE TABLE test_course (   id varchar(10) NOT NULL,   class varchar(1000) DEFAULT NULL,  grade int(100) DEFAULT NULL,  PRIMARY KEY (id)) ENGINE=InnoDB DEFAULT CHARSET=latin1; 第二步">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-25T01:52:10.809Z">
+<meta property="og:updated_time" content="2019-06-25T02:01:03.627Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySql面试题集锦(持续更新中)">
-<meta name="twitter:description" content="①如何取出每科成绩的前三名###第一步 建表 ###CREATE TABLEtest_course(idvarchar(10) NOT NULL,classvarchar(1000) DEFAULT NULL,gradeint(100) DEFAULT NULL,   PRIMARY KEY (id) ) ENGINE=InnoDB DEFAULT CHARSET=latin1 第二步 插入数据I">
+<meta name="twitter:description" content="①如何取出每科成绩的前三名第一步 建表CREATE TABLE test_course (   id varchar(10) NOT NULL,   class varchar(1000) DEFAULT NULL,  grade int(100) DEFAULT NULL,  PRIMARY KEY (id)) ENGINE=InnoDB DEFAULT CHARSET=latin1; 第二步">
 
 
 
@@ -368,13 +368,35 @@
          
            <span class="post-updated">
              &nbsp; | &nbsp; 更新于
-             <time itemprop="dateUpdated" datetime="2019-06-25T09:52:10+08:00" content="2019-06-25">
+             <time itemprop="dateUpdated" datetime="2019-06-25T10:01:03+08:00" content="2019-06-25">
                2019-06-25
              </time>
            </span>
          
 
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/databases-MySQL/" itemprop="url" rel="index">
+                    <span itemprop="name">databases,MySQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -409,7 +431,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  297
+                  241
                 </span>
               
 
@@ -446,27 +468,10 @@
       
 
       
-        <h1 id="①如何取出每科成绩的前三名"><a href="#①如何取出每科成绩的前三名" class="headerlink" title="①如何取出每科成绩的前三名"></a><strong>①如何取出每科成绩的前三名</strong></h1><p>###第一步 建表 ###<br><code>CREATE TABLE</code>test_course<code>(</code>id<code>varchar(10) NOT NULL,</code>class<code>varchar(1000) DEFAULT NULL,</code>grade<code>int(100) DEFAULT NULL,
-  PRIMARY KEY (</code>id<code>)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1</code></p>
-<h3 id="第二步-插入数据"><a href="#第二步-插入数据" class="headerlink" title="第二步 插入数据"></a>第二步 插入数据</h3><p><code>INSERT INTO test.</code>test_course<code>VALUES (&#39;1&#39;,&#39;yuwen&#39;,&#39;100&#39;);
-INSERT INTO test.</code>test_course<code>VALUES (&#39;10&#39;,&#39;yingyu&#39;,&#39;16&#39;);
-INSERT INTO test.</code>test_course<code>VALUES (&#39;11&#39;,&#39;yingyu&#39;,&#39;85&#39;);
-INSERT INTO test.</code>test_course<code>VALUES (&#39;12&#39;,&#39;yingyu&#39;,&#39;95&#39;);
-INSERT INTO test.</code>test_course<code>VALUES (&#39;2&#39;,&#39;yuwen&#39;,&#39;80&#39;);
-INSERT INTO test.</code>test_course<code>VALUES (&#39;3&#39;,&#39;shuxue&#39;,&#39;60&#39;);
-INSERT INTO test.</code>test_course<code>VALUES (&#39;4&#39;,&#39;shuxue&#39;,&#39;100&#39;);
-INSERT INTO test.</code>test_course<code>VALUES (&#39;5&#39;,&#39;shuxue&#39;,&#39;95&#39;);
-INSERT INTO test.</code>test_course<code>VALUES (&#39;6&#39;,&#39;yuwen&#39;,&#39;85&#39;);
-INSERT INTO test.</code>test_course<code>VALUES (&#39;7&#39;,&#39;shuxue&#39;,&#39;16&#39;);
-INSERT INTO test.</code>test_course<code>VALUES (&#39;8&#39;,&#39;yuwen&#39;,&#39;15&#39;);
-INSERT INTO test.</code>test_course<code>VALUES (&#39;9&#39;,&#39;yingyu&#39;,&#39;15&#39;);</code></p>
-<h3 id="第三步-查出每个科目的全部排名"><a href="#第三步-查出每个科目的全部排名" class="headerlink" title="第三步 查出每个科目的全部排名"></a>第三步 查出每个科目的全部排名</h3><p><code>SELECT S1.*,(SELECT COUNT(1) FROM TEST.</code>test_course<code>S2 WHERE S1.CLASS = S2.CLASS AND S2.GRADE &gt; S1.GRADE)+1
- AS &quot;paiming&quot;
-FROM TEST.</code>test_course<code>S1   ORDER BY S1.CLASS,paiming;</code></p>
-<h3 id="第四步-取出每个科目的前三名"><a href="#第四步-取出每个科目的前三名" class="headerlink" title="第四步 取出每个科目的前三名"></a>第四步 取出每个科目的前三名</h3><p><code>SELECT S1.*,(SELECT COUNT(1) FROM TEST.</code>test_course<code>S2 WHERE S1.CLASS = S2.CLASS AND S2.GRADE &gt; S1.GRADE)+1
- AS &quot;paiming&quot;
-FROM TEST.</code>test_course<code>S1  HAVING paiming &lt;=3 ORDER BY S1.CLASS,paiming;</code></p>
+        <h1 id="①如何取出每科成绩的前三名"><a href="#①如何取出每科成绩的前三名" class="headerlink" title="①如何取出每科成绩的前三名"></a><strong>①如何取出每科成绩的前三名</strong></h1><h3 id="第一步-建表"><a href="#第一步-建表" class="headerlink" title="第一步 建表"></a>第一步 建表</h3><p>CREATE TABLE <code>test_course</code> ( <br><br>  <code>id</code> varchar(10) NOT NULL, <br><br>  <code>class</code> varchar(1000) DEFAULT NULL,<br><br>  <code>grade</code> int(100) DEFAULT NULL,<br><br>  PRIMARY KEY (<code>id</code>)<br><br>) ENGINE=InnoDB DEFAULT CHARSET=latin1;<br></p>
+<h3 id="第二步-插入数据"><a href="#第二步-插入数据" class="headerlink" title="第二步 插入数据"></a>第二步 插入数据</h3><p>INSERT INTO test.<code>test_course</code> VALUES (‘1’,’yuwen’,’100’);<br><br>INSERT INTO test.<code>test_course</code> VALUES (‘10’,’yingyu’,’16’);<br><br>INSERT INTO test.<code>test_course</code> VALUES (‘11’,’yingyu’,’85’);<br><br>INSERT INTO test.<code>test_course</code> VALUES (‘12’,’yingyu’,’95’);<br><br>INSERT INTO test.<code>test_course</code> VALUES (‘2’,’yuwen’,’80’);<br><br>INSERT INTO test.<code>test_course</code> VALUES (‘3’,’shuxue’,’60’);<br><br>INSERT INTO test.<code>test_course</code> VALUES (‘4’,’shuxue’,’100’);<br><br>INSERT INTO test.<code>test_course</code> VALUES (‘5’,’shuxue’,’95’);<br><br>INSERT INTO test.<code>test_course</code> VALUES (‘6’,’yuwen’,’85’);<br><br>INSERT INTO test.<code>test_course</code> VALUES (‘7’,’shuxue’,’16’);<br><br>INSERT INTO test.<code>test_course</code> VALUES (‘8’,’yuwen’,’15’);<br><br>INSERT INTO test.<code>test_course</code> VALUES (‘9’,’yingyu’,’15’);<br></p>
+<h3 id="第三步-查出每个科目的全部排名"><a href="#第三步-查出每个科目的全部排名" class="headerlink" title="第三步 查出每个科目的全部排名"></a>第三步 查出每个科目的全部排名</h3><p>SELECT S1.*,(SELECT COUNT(1) FROM TEST.<code>test_course</code> S2 <br><br>WHERE S1.CLASS = S2.CLASS AND S2.GRADE &gt; S1.GRADE)+1 AS “paiming” <br><br>FROM TEST.<code>test_course</code> S1   ORDER BY S1.CLASS,paiming;<br></p>
+<h3 id="第四步-取出每个科目的前三名"><a href="#第四步-取出每个科目的前三名" class="headerlink" title="第四步 取出每个科目的前三名"></a>第四步 取出每个科目的前三名</h3><p>SELECT S1.*,(SELECT COUNT(1) FROM TEST.<code>test_course</code> S2 <br><br>WHERE S1.CLASS = S2.CLASS AND S2.GRADE &gt; S1.GRADE)+1<br><br> AS “paiming”<br><br>FROM TEST.<code>test_course</code> S1  HAVING paiming &lt;=3 ORDER BY S1.CLASS,paiming;<br></p>
 
       
     </div>
@@ -494,7 +499,7 @@ FROM TEST.</code>test_course<code>S1  HAVING paiming &lt;=3 ORDER BY S1.CLASS,pa
       
         <div class="post-tags">
           
-            <a href="/tags/databases/" rel="tag"><i class="fa fa-tag"></i> databases</a>
+            <a href="/tags/databases-MySQL/" rel="tag"><i class="fa fa-tag"></i> databases,MySQL</a>
           
         </div>
       
@@ -627,6 +632,15 @@ var jiathis_config={
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
             
               
@@ -719,7 +733,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#①如何取出每科成绩的前三名"><span class="nav-number">1.</span> <span class="nav-text">①如何取出每科成绩的前三名</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第二步-插入数据"><span class="nav-number">1.0.1.</span> <span class="nav-text">第二步 插入数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三步-查出每个科目的全部排名"><span class="nav-number">1.0.2.</span> <span class="nav-text">第三步 查出每个科目的全部排名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四步-取出每个科目的前三名"><span class="nav-number">1.0.3.</span> <span class="nav-text">第四步 取出每个科目的前三名</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#①如何取出每科成绩的前三名"><span class="nav-number">1.</span> <span class="nav-text">①如何取出每科成绩的前三名</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一步-建表"><span class="nav-number">1.0.1.</span> <span class="nav-text">第一步 建表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二步-插入数据"><span class="nav-number">1.0.2.</span> <span class="nav-text">第二步 插入数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三步-查出每个科目的全部排名"><span class="nav-number">1.0.3.</span> <span class="nav-text">第三步 查出每个科目的全部排名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四步-取出每个科目的前三名"><span class="nav-number">1.0.4.</span> <span class="nav-text">第四步 取出每个科目的前三名</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -753,7 +767,7 @@ var jiathis_config={
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">766</span>
+    <span title="Site words total count">710</span>
   
  -->
 </div>
@@ -775,7 +789,7 @@ var jiathis_config={
 -->
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共766字</span>
+  <span class="post-count">博客全站共710字</span>
 </div>
 
 <div class="powered-by">

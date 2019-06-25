@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xuyanghn1994.github.io/"/>
-  <updated>2019-06-25T01:52:10.809Z</updated>
+  <updated>2019-06-25T02:01:03.627Z</updated>
   <id>https://xuyanghn1994.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://xuyanghn1994.github.io/2019/06/25/MySql%E9%9D%A2%E8%AF%95%E9%A2%98%E9%9B%86%E9%94%A6-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E4%B8%AD/"/>
     <id>https://xuyanghn1994.github.io/2019/06/25/MySql面试题集锦-持续更新中/</id>
     <published>2019-06-25T01:24:51.000Z</published>
-    <updated>2019-06-25T01:52:10.809Z</updated>
+    <updated>2019-06-25T02:01:03.627Z</updated>
     
     <summary type="html">
     
@@ -29,14 +29,16 @@
       
         
         
-          &lt;h1 id=&quot;①如何取出每科成绩的前三名&quot;&gt;&lt;a href=&quot;#①如何取出每科成绩的前三名&quot; class=&quot;headerlink&quot; title=&quot;①如何取出每科成绩的前三名&quot;&gt;&lt;/a&gt;&lt;strong&gt;①如何取出每科成绩的前三名&lt;/strong&gt;&lt;/h1&gt;&lt;p&gt;###第一步
+          &lt;h1 id=&quot;①如何取出每科成绩的前三名&quot;&gt;&lt;a href=&quot;#①如何取出每科成绩的前三名&quot; class=&quot;headerlink&quot; title=&quot;①如何取出每科成绩的前三名&quot;&gt;&lt;/a&gt;&lt;strong&gt;①如何取出每科成绩的前三名&lt;/strong&gt;&lt;/h1&gt;&lt;h3
         
       
     
     </summary>
     
+      <category term="databases,MySQL" scheme="https://xuyanghn1994.github.io/categories/databases-MySQL/"/>
     
-      <category term="databases" scheme="https://xuyanghn1994.github.io/tags/databases/"/>
+    
+      <category term="databases,MySQL" scheme="https://xuyanghn1994.github.io/tags/databases-MySQL/"/>
     
   </entry>
   
