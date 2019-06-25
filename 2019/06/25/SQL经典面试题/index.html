@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<scriptsrc=" cdn.bootcss.com pace 1.0.2 pace.min.js">
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+
+
+
+  <meta name="keywords" content="databases,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="空城孤王" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="进入fuxi库use fuxi;创建表tb_areaCREATE TABLE tb_area (   area_id int NOT NULL AUTO_INCREMENT,   area_name varchar(200) NOT NULL,  /* varchar(200)会根据大小分配，所以设置大点无所谓 */   str varchar(200) DEFAULT &amp;apos;strings">
+<meta name="keywords" content="databases">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL经典面试题">
+<meta property="og:url" content="https://xuyanghn1994.github.io/2019/06/25/SQL经典面试题/index.html">
+<meta property="og:site_name" content="空城孤王">
+<meta property="og:description" content="进入fuxi库use fuxi;创建表tb_areaCREATE TABLE tb_area (   area_id int NOT NULL AUTO_INCREMENT,   area_name varchar(200) NOT NULL,  /* varchar(200)会根据大小分配，所以设置大点无所谓 */   str varchar(200) DEFAULT &amp;apos;strings">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-25T07:17:09.124Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SQL经典面试题">
+<meta name="twitter:description" content="进入fuxi库use fuxi;创建表tb_areaCREATE TABLE tb_area (   area_id int NOT NULL AUTO_INCREMENT,   area_name varchar(200) NOT NULL,  /* varchar(200)会根据大小分配，所以设置大点无所谓 */   str varchar(200) DEFAULT &amp;apos;strings">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://xuyanghn1994.github.io/2019/06/25/SQL经典面试题/">
+
+
+
+
+
+  <title>SQL经典面试题 | 空城孤王</title>
+  
+
+
+
+
+
+
+
+
+</scriptsrc="></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/xuyanghn1994"><img style="position:absolute;top:0;right:0;border:0;" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_darkblue_121621.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">空城孤王</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xuyanghn1994.github.io/2019/06/25/SQL经典面试题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="许洋">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="空城孤王">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">SQL经典面试题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-25T14:47:29+08:00">
+                2019-06-25
+              </time>
+            
+
+            
+
+            
+          </span>
+          
+          
+         
+           <span class="post-updated">
+             &nbsp; | &nbsp; 更新于
+             <time itemprop="dateUpdated" datetime="2019-06-25T15:17:09+08:00" content="2019-06-25">
+               2019-06-25
+             </time>
+           </span>
+         
+
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/06/25/SQL经典面试题/" class="leancloud_visitors" data-flag-title="SQL经典面试题">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.5k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  12
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="进入fuxi库"><a href="#进入fuxi库" class="headerlink" title="进入fuxi库"></a>进入fuxi库</h2><pre><code>use fuxi;</code></pre><h2 id="创建表tb-area"><a href="#创建表tb-area" class="headerlink" title="创建表tb_area"></a>创建表tb_area</h2><pre><code>CREATE TABLE tb_area (
+  area_id int NOT NULL AUTO_INCREMENT,
+  area_name varchar(200) NOT NULL,  /* varchar(200)会根据大小分配，所以设置大点无所谓 */
+  str varchar(200) DEFAULT &apos;strings&apos;,  /* 单引号和双引号效果一样 */
+  priority int NOT NULL DEFAULT 0,  /* int会默认设置长度为11 */
+  create_time datetime DEFAULT NULL,
+  last_edit_time datetime DEFAULT NULL,
+  PRIMARY KEY (area_id),
+  UNIQUE KEY UK_AREA (area_name)  /* 最后一行无逗号 */
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;  /* InnoDB是mysql默认存储引擎，AUTO_INCREMENT设置起始值，DEFAULT CHARSET=utf8 */</code></pre><h2 id="创建表STUDENT"><a href="#创建表STUDENT" class="headerlink" title="创建表STUDENT"></a>创建表STUDENT</h2><pre><code>CREATE TABLE STUDENT
+(
+  SNO   VARCHAR(3) NOT NULL,
+  SNAME VARCHAR(4) NOT NULL,
+  SSEX  VARCHAR(2) NOT NULL,
+  SBIRTHDAY DATETIME,
+  CLASS VARCHAR(5)
+);</code></pre><h2 id="创建表COURSE"><a href="#创建表COURSE" class="headerlink" title="创建表COURSE"></a>创建表COURSE</h2><pre><code>CREATE TABLE COURSE
+(
+  CNO   VARCHAR(5)  NOT NULL,
+  CNAME VARCHAR(10) NOT NULL,
+  TNO   VARCHAR(10) NOT NULL
+);</code></pre><h2 id="创建表SCORE"><a href="#创建表SCORE" class="headerlink" title="创建表SCORE"></a>创建表SCORE</h2><pre><code>CREATE TABLE SCORE
+ (
+   SNO    VARCHAR(3)     NOT NULL,
+   CNO    VARCHAR(5)     NOT NULL,
+   DEGREE NUMERIC(10, 1) NOT NULL
+ );</code></pre><h2 id="创建表TEACHER"><a href="#创建表TEACHER" class="headerlink" title="创建表TEACHER"></a>创建表TEACHER</h2><pre><code>CREATE TABLE TEACHER
+(
+  TNO       VARCHAR(3)  NOT NULL,
+  TNAME     VARCHAR(4)  NOT NULL,
+  TSEX      VARCHAR(2)  NOT NULL,
+  TBIRTHDAY DATETIME    NOT NULL,
+  PROF      VARCHAR(6),
+  DEPART    VARCHAR(10) NOT NULL
+);</code></pre><h2 id="插入值-STUDENT表"><a href="#插入值-STUDENT表" class="headerlink" title="插入值 STUDENT表"></a>插入值 STUDENT表</h2><pre><code>INSERT INTO STUDENT (SNO, SNAME, SSEX, SBIRTHDAY, CLASS) VALUES (108, &apos;曾华&apos;
+  , &apos;男&apos;, &apos;1977-09-01&apos;, 95033);
+INSERT INTO STUDENT (SNO, SNAME, SSEX, SBIRTHDAY, CLASS) VALUES (105, &apos;匡明&apos;
+  , &apos;男&apos;, &apos;1975-10-02&apos;, 95031);
+INSERT INTO STUDENT (SNO, SNAME, SSEX, SBIRTHDAY, CLASS) VALUES (107, &apos;王丽&apos;
+  , &apos;女&apos;, &apos;1976-01-23&apos;, 95033);
+INSERT INTO STUDENT (SNO, SNAME, SSEX, SBIRTHDAY, CLASS) VALUES (101, &apos;李军&apos;
+  , &apos;男&apos;, &apos;1976-02-20&apos;, 95033);
+INSERT INTO STUDENT (SNO, SNAME, SSEX, SBIRTHDAY, CLASS) VALUES (109, &apos;王芳&apos;
+  , &apos;女&apos;, &apos;1975-02-10&apos;, 95031);
+INSERT INTO STUDENT (SNO, SNAME, SSEX, SBIRTHDAY, CLASS) VALUES (103, &apos;陆君&apos;
+  , &apos;男&apos;, &apos;1974-06-03&apos;, 95031);</code></pre><h2 id="插入值COURSE表"><a href="#插入值COURSE表" class="headerlink" title="插入值COURSE表"></a>插入值COURSE表</h2><pre><code>INSERT INTO COURSE (CNO, CNAME, TNO) VALUES (&apos;3-105&apos;, &apos;计算机导论&apos;, 825);
+INSERT INTO COURSE (CNO, CNAME, TNO) VALUES (&apos;3-245&apos;, &apos;操作系统&apos;, 804);
+INSERT INTO COURSE (CNO, CNAME, TNO) VALUES (&apos;6-166&apos;, &apos;数据电路&apos;, 856);
+INSERT INTO COURSE (CNO, CNAME, TNO) VALUES (&apos;9-888&apos;, &apos;高等数学&apos;, 100);</code></pre><h2 id="插入值SCORE表"><a href="#插入值SCORE表" class="headerlink" title="插入值SCORE表"></a>插入值SCORE表</h2><pre><code>INSERT INTO SCORE (SNO, CNO, DEGREE) VALUES (103, &apos;3-245&apos;, 86);
+INSERT INTO SCORE (SNO, CNO, DEGREE) VALUES (105, &apos;3-245&apos;, 75);
+INSERT INTO SCORE (SNO, CNO, DEGREE) VALUES (109, &apos;3-245&apos;, 68);
+INSERT INTO SCORE (SNO, CNO, DEGREE) VALUES (103, &apos;3-105&apos;, 92);
+INSERT INTO SCORE (SNO, CNO, DEGREE) VALUES (105, &apos;3-105&apos;, 88);
+INSERT INTO SCORE (SNO, CNO, DEGREE) VALUES (109, &apos;3-105&apos;, 76);
+INSERT INTO SCORE (SNO, CNO, DEGREE) VALUES (101, &apos;3-105&apos;, 64);
+INSERT INTO SCORE (SNO, CNO, DEGREE) VALUES (107, &apos;3-105&apos;, 91);
+INSERT INTO SCORE (SNO, CNO, DEGREE) VALUES (101, &apos;6-166&apos;, 85);
+INSERT INTO SCORE (SNO, CNO, DEGREE) VALUES (107, &apos;6-106&apos;, 79);
+INSERT INTO SCORE (SNO, CNO, DEGREE) VALUES (108, &apos;3-105&apos;, 78);
+INSERT INTO SCORE (SNO, CNO, DEGREE) VALUES (108, &apos;6-166&apos;, 81);</code></pre><h2 id="插入值TEACHER表"><a href="#插入值TEACHER表" class="headerlink" title="插入值TEACHER表"></a>插入值TEACHER表</h2><pre><code>INSERT INTO TEACHER (TNO, TNAME, TSEX, TBIRTHDAY, PROF, DEPART)
+VALUES (804, &apos;李诚&apos;, &apos;男&apos;, &apos;1958-12-02&apos;, &apos;副教授&apos;, &apos;计算机系&apos;);
+INSERT INTO TEACHER (TNO, TNAME, TSEX, TBIRTHDAY, PROF, DEPART)
+VALUES (856, &apos;张旭&apos;, &apos;男&apos;, &apos;1969-03-12&apos;, &apos;讲师&apos;, &apos;电子工程系&apos;);
+INSERT INTO TEACHER (TNO, TNAME, TSEX, TBIRTHDAY, PROF, DEPART)
+VALUES (825, &apos;王萍&apos;, &apos;女&apos;, &apos;1972-05-05&apos;, &apos;助教&apos;, &apos;计算机系&apos;);
+INSERT INTO TEACHER (TNO, TNAME, TSEX, TBIRTHDAY, PROF, DEPART)
+VALUES (831, &apos;刘冰&apos;, &apos;女&apos;, &apos;1977-08-14&apos;, &apos;助教&apos;, &apos;电子工程系&apos;);</code></pre><h2 id="–-1、-查询Student表中的所有记录的Sname、Ssex和Class列。"><a href="#–-1、-查询Student表中的所有记录的Sname、Ssex和Class列。" class="headerlink" title="– 1、 查询Student表中的所有记录的Sname、Ssex和Class列。"></a>– 1、 查询Student表中的所有记录的Sname、Ssex和Class列。</h2><pre><code>select
+  SNAME,
+  SSEX,
+  CLASS
+from STUDENT;</code></pre><h2 id="–-2、-查询教师所有的单位即不重复的Depart列。"><a href="#–-2、-查询教师所有的单位即不重复的Depart列。" class="headerlink" title="– 2、 查询教师所有的单位即不重复的Depart列。"></a>– 2、 查询教师所有的单位即不重复的Depart列。</h2><pre><code>select distinct DEPART
+from TEACHER1;</code></pre><h2 id="–-3、-查询Student表的所有记录。"><a href="#–-3、-查询Student表的所有记录。" class="headerlink" title="– 3、 查询Student表的所有记录。"></a>– 3、 查询Student表的所有记录。</h2><pre><code>select *
+from STUDENT;</code></pre><h2 id="–-4、-查询Score表中成绩在60到80之间的所有记录。"><a href="#–-4、-查询Score表中成绩在60到80之间的所有记录。" class="headerlink" title="– 4、 查询Score表中成绩在60到80之间的所有记录。"></a>– 4、 查询Score表中成绩在60到80之间的所有记录。</h2><pre><code>select *
+from SCORE
+where DEGREE &gt; 60 and DEGREE &lt; 80;</code></pre><h2 id="–-5、-查询Score表中成绩为85，86或88的记录。"><a href="#–-5、-查询Score表中成绩为85，86或88的记录。" class="headerlink" title="– 5、 查询Score表中成绩为85，86或88的记录。"></a>– 5、 查询Score表中成绩为85，86或88的记录。</h2><pre><code>select *
+from SCORE
+where DEGREE = 85 or DEGREE = 86 or DEGREE = 88;</code></pre><h2 id="–-6、-查询Student表中“95031”班或性别为“女”的同学记录。"><a href="#–-6、-查询Student表中“95031”班或性别为“女”的同学记录。" class="headerlink" title="– 6、 查询Student表中“95031”班或性别为“女”的同学记录。"></a>– 6、 查询Student表中“95031”班或性别为“女”的同学记录。</h2><pre><code>select *
+from STUDENT
+where CLASS = &apos;95031&apos; or SSEX = &apos;女&apos;;</code></pre><h2 id="–-7、-以Class降序查询Student表的所有记录。"><a href="#–-7、-以Class降序查询Student表的所有记录。" class="headerlink" title="– 7、 以Class降序查询Student表的所有记录。"></a>– 7、 以Class降序查询Student表的所有记录。</h2><pre><code>select *
+from STUDENT
+order by CLASS desc;</code></pre><h2 id="–-8、-以Cno升序、Degree降序查询Score表的所有记录。"><a href="#–-8、-以Cno升序、Degree降序查询Score表的所有记录。" class="headerlink" title="– 8、 以Cno升序、Degree降序查询Score表的所有记录。"></a>– 8、 以Cno升序、Degree降序查询Score表的所有记录。</h2><pre><code>select *
+from SCORE
+order by CNO asc, DEGREE desc;</code></pre><h2 id="–-9、-查询“95031”班的学生人数。"><a href="#–-9、-查询“95031”班的学生人数。" class="headerlink" title="– 9、 查询“95031”班的学生人数。"></a>– 9、 查询“95031”班的学生人数。</h2><pre><code>select count(*)
+from STUDENT
+where CLASS = &apos;95031&apos;;</code></pre><h2 id="–-10、查询Score表中的最高分的学生学号和课程号。"><a href="#–-10、查询Score表中的最高分的学生学号和课程号。" class="headerlink" title="– 10、查询Score表中的最高分的学生学号和课程号。"></a>– 10、查询Score表中的最高分的学生学号和课程号。</h2><pre><code>select
+  sno,
+  CNO
+from SCORE
+where DEGREE = (
+  select max(DEGREE)
+  from SCORE
+);</code></pre><h2 id="–-11、查询‘3-105’号课程的平均分。"><a href="#–-11、查询‘3-105’号课程的平均分。" class="headerlink" title="– 11、查询‘3-105’号课程的平均分。"></a>– 11、查询‘3-105’号课程的平均分。</h2><pre><code>select avg(DEGREE)
+from SCORE
+where CNO = &apos;3-105&apos;;</code></pre><h2 id="–-12、查询Score表中至少有5名学生选修的并以3开头的课程的平均分数。"><a href="#–-12、查询Score表中至少有5名学生选修的并以3开头的课程的平均分数。" class="headerlink" title="– 12、查询Score表中至少有5名学生选修的并以3开头的课程的平均分数。"></a>– 12、查询Score表中至少有5名学生选修的并以3开头的课程的平均分数。</h2><pre><code>select
+  avg(DEGREE),
+  CNO
+from SCORE
+where cno like &apos;3%&apos;
+group by CNO
+having count(*) &gt; 5;</code></pre><h2 id="–-13、查询最低分大于70，最高分小于90的Sno列。"><a href="#–-13、查询最低分大于70，最高分小于90的Sno列。" class="headerlink" title="– 13、查询最低分大于70，最高分小于90的Sno列。"></a>– 13、查询最低分大于70，最高分小于90的Sno列。</h2><pre><code>select SNO
+from SCORE
+group by SNO
+having min(DEGREE) &gt; 70 and max(DEGREE) &lt; 90;</code></pre><h2 id="–-14、查询所有学生的Sname、Cno和Degree列。"><a href="#–-14、查询所有学生的Sname、Cno和Degree列。" class="headerlink" title="– 14、查询所有学生的Sname、Cno和Degree列。"></a>– 14、查询所有学生的Sname、Cno和Degree列。</h2><pre><code>select
+  SNAME,
+  CNO,
+  DEGREE
+from STUDENT, SCORE
+where STUDENT.SNO = SCORE.SNO;</code></pre><h2 id="–-15、查询所有学生的Sno、Cname和Degree列。"><a href="#–-15、查询所有学生的Sno、Cname和Degree列。" class="headerlink" title="– 15、查询所有学生的Sno、Cname和Degree列。"></a>– 15、查询所有学生的Sno、Cname和Degree列。</h2><pre><code>select
+  SCORE.SNO,
+  CNO,
+  DEGREE
+from STUDENT, SCORE
+where STUDENT.SNO = SCORE.SNO;</code></pre><h2 id="–-16、查询所有学生的Sname、Cname和Degree列。"><a href="#–-16、查询所有学生的Sname、Cname和Degree列。" class="headerlink" title="– 16、查询所有学生的Sname、Cname和Degree列。"></a>– 16、查询所有学生的Sname、Cname和Degree列。</h2><pre><code>SELECT
+  A.SNAME,
+  B.CNAME,
+  C.DEGREE
+FROM STUDENT A
+  JOIN (COURSE B, SCORE C)
+    ON A.SNO = C.SNO AND B.CNO = C.CNO;</code></pre><h2 id="–-17、查询“95033”班所选课程的平均分。"><a href="#–-17、查询“95033”班所选课程的平均分。" class="headerlink" title="– 17、查询“95033”班所选课程的平均分。"></a>– 17、查询“95033”班所选课程的平均分。</h2><pre><code>select avg(DEGREE)
+from SCORE
+where sno in (select SNO
+              from STUDENT
+              where CLASS = &apos;95033&apos;);</code></pre><h2 id="–-18、假设使用如下命令建立了一个grade表："><a href="#–-18、假设使用如下命令建立了一个grade表：" class="headerlink" title="– 18、假设使用如下命令建立了一个grade表："></a>– 18、假设使用如下命令建立了一个grade表：</h2><pre><code>create table grade (
+  low  numeric(3, 0),
+  upp  numeric(3),
+  rank char(1)
+);
+insert into grade values (90, 100, &apos;A&apos;);
+insert into grade values (80, 89, &apos;B&apos;);
+insert into grade values (70, 79, &apos;C&apos;);
+insert into grade values (60, 69, &apos;D&apos;);
+insert into grade values (0, 59, &apos;E&apos;);</code></pre><h2 id="–-现查询所有同学的Sno、Cno和rank列。"><a href="#–-现查询所有同学的Sno、Cno和rank列。" class="headerlink" title="– 现查询所有同学的Sno、Cno和rank列。"></a>– 现查询所有同学的Sno、Cno和rank列。</h2><pre><code>SELECT
+  A.SNO,
+  A.CNO,
+  B.RANK
+FROM SCORE A, grade B
+WHERE A.DEGREE BETWEEN B.LOW AND B.UPP
+ORDER BY RANK;</code></pre><h2 id="–-19、查询选修“3-105”课程的成绩高于“109”号同学成绩的所有同学的记录。"><a href="#–-19、查询选修“3-105”课程的成绩高于“109”号同学成绩的所有同学的记录。" class="headerlink" title="– 19、查询选修“3-105”课程的成绩高于“109”号同学成绩的所有同学的记录。"></a>– 19、查询选修“3-105”课程的成绩高于“109”号同学成绩的所有同学的记录。</h2><pre><code>select *
+from SCORE
+where CNO = &apos;3-105&apos; and DEGREE &gt; ALL (
+  select DEGREE
+  from SCORE
+  where SNO = &apos;109&apos;
+);
+
+set @@global.sql_mode = &apos;STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&apos;;
+set sql_mode = &apos;STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&apos;;</code></pre><h2 id="–-20、查询score中选学一门以上课程的同学中分数为非最高分成绩的记录"><a href="#–-20、查询score中选学一门以上课程的同学中分数为非最高分成绩的记录" class="headerlink" title="– 20、查询score中选学一门以上课程的同学中分数为非最高分成绩的记录"></a>– 20、查询score中选学一门以上课程的同学中分数为非最高分成绩的记录</h2><pre><code>select *
+from SCORE
+where DEGREE &lt; (select MAX(DEGREE)
+                from SCORE)
+group by SNO
+having count(*) &gt; 1;</code></pre><h2 id="–-21、查询成绩高于学号为“109”、课程号为“3-105”的成绩的所有记录。"><a href="#–-21、查询成绩高于学号为“109”、课程号为“3-105”的成绩的所有记录。" class="headerlink" title="– 21、查询成绩高于学号为“109”、课程号为“3-105”的成绩的所有记录。"></a>– 21、查询成绩高于学号为“109”、课程号为“3-105”的成绩的所有记录。</h2><pre><code>-- 同19</code></pre><h2 id="–-22、查询和学号为108的同学同年出生的所有学生的Sno、Sname和Sbirthday列。"><a href="#–-22、查询和学号为108的同学同年出生的所有学生的Sno、Sname和Sbirthday列。" class="headerlink" title="– 22、查询和学号为108的同学同年出生的所有学生的Sno、Sname和Sbirthday列。"></a>– 22、查询和学号为108的同学同年出生的所有学生的Sno、Sname和Sbirthday列。</h2><pre><code>select
+  SNO,
+  SNAME,
+  SBIRTHDAY
+from STUDENT
+where year(SBIRTHDAY) = (
+  select year(SBIRTHDAY)
+  from STUDENT
+  where SNO = &apos;108&apos;
+);</code></pre><h2 id="–-23、查询“张旭“教师任课的学生成绩。"><a href="#–-23、查询“张旭“教师任课的学生成绩。" class="headerlink" title="– 23、查询“张旭“教师任课的学生成绩。"></a>– 23、查询“张旭“教师任课的学生成绩。</h2><pre><code>select *
+from SCORE
+where cno = (
+  select CNO
+  from COURSE
+    inner join TEACHER on COURSE.TNO = TEACHER.TNO and TNAME = &apos;张旭&apos;
+);</code></pre><h2 id="–-24、查询选修某课程的同学人数多于5人的教师姓名。"><a href="#–-24、查询选修某课程的同学人数多于5人的教师姓名。" class="headerlink" title="– 24、查询选修某课程的同学人数多于5人的教师姓名。"></a>– 24、查询选修某课程的同学人数多于5人的教师姓名。</h2><pre><code>select TNAME
+from TEACHER
+where TNO = (
+  select TNO
+  from COURSE
+  where CNO = (select CNO
+               from SCORE
+               group by CNO
+               having count(SNO) &gt; 5)
+);</code></pre><h2 id="–-25、查询95033班和95031班全体学生的记录。"><a href="#–-25、查询95033班和95031班全体学生的记录。" class="headerlink" title="– 25、查询95033班和95031班全体学生的记录。"></a>– 25、查询95033班和95031班全体学生的记录。</h2><pre><code>select *
+from STUDENT
+where CLASS in (&apos;95033&apos;, &apos;95031&apos;);</code></pre><h2 id="–-26、查询存在有85分以上成绩的课程Cno"><a href="#–-26、查询存在有85分以上成绩的课程Cno" class="headerlink" title="– 26、查询存在有85分以上成绩的课程Cno."></a>– 26、查询存在有85分以上成绩的课程Cno.</h2><pre><code>select cno
+from SCORE
+group by CNO
+having MAX(DEGREE) &gt; 85;</code></pre><h2 id="–-27、查询出“计算机系“教师所教课程的成绩表。"><a href="#–-27、查询出“计算机系“教师所教课程的成绩表。" class="headerlink" title="– 27、查询出“计算机系“教师所教课程的成绩表。"></a>– 27、查询出“计算机系“教师所教课程的成绩表。</h2><pre><code>select *
+from SCORE
+where CNO in (select CNO
+              from TEACHER, COURSE
+              where DEPART = &apos;计算机系&apos; and COURSE.TNO = TEACHER.TNO);</code></pre><h2 id="–-28、查询“计算机系”与“电子工程系“不同职称的教师的Tname和Prof"><a href="#–-28、查询“计算机系”与“电子工程系“不同职称的教师的Tname和Prof" class="headerlink" title="– 28、查询“计算机系”与“电子工程系“不同职称的教师的Tname和Prof"></a>– 28、查询“计算机系”与“电子工程系“不同职称的教师的Tname和Prof</h2><pre><code>select
+  tname,
+  prof
+from TEACHER
+where depart = &apos;计算机系&apos; and prof not in (
+  select prof
+  from TEACHER
+  where depart = &apos;电子工程系&apos;
+);</code></pre><h2 id="–-29、查询选修编号为“3-105“课程且成绩至少高于选修编号为“3-245”的同学的Cno、Sno和Degree-并按Degree从高到低次序排序。"><a href="#–-29、查询选修编号为“3-105“课程且成绩至少高于选修编号为“3-245”的同学的Cno、Sno和Degree-并按Degree从高到低次序排序。" class="headerlink" title="– 29、查询选修编号为“3-105“课程且成绩至少高于选修编号为“3-245”的同学的Cno、Sno和Degree,并按Degree从高到低次序排序。"></a>– 29、查询选修编号为“3-105“课程且成绩至少高于选修编号为“3-245”的同学的Cno、Sno和Degree,并按Degree从高到低次序排序。</h2><pre><code>select
+  CNO,
+  SNO,
+  DEGREE
+from SCORE
+where CNO = &apos;3-105&apos; and DEGREE &gt; any (
+  select DEGREE
+  from SCORE
+  where CNO = &apos;3-245&apos;
+)
+order by DEGREE desc;</code></pre><h2 id="–-30、查询选修编号为“3-105”且成绩高于选修编号为“3-245”课程的同学的Cno、Sno和Degree"><a href="#–-30、查询选修编号为“3-105”且成绩高于选修编号为“3-245”课程的同学的Cno、Sno和Degree" class="headerlink" title="– 30、查询选修编号为“3-105”且成绩高于选修编号为“3-245”课程的同学的Cno、Sno和Degree."></a>– 30、查询选修编号为“3-105”且成绩高于选修编号为“3-245”课程的同学的Cno、Sno和Degree.</h2><pre><code>SELECT *
+FROM SCORE
+WHERE DEGREE &gt; ALL (
+  SELECT DEGREE
+  FROM SCORE
+  WHERE CNO = &apos;3-245&apos;
+)
+ORDER by DEGREE desc;</code></pre><h2 id="–-31、查询所有教师和同学的name、sex和birthday"><a href="#–-31、查询所有教师和同学的name、sex和birthday" class="headerlink" title="– 31、查询所有教师和同学的name、sex和birthday."></a>– 31、查询所有教师和同学的name、sex和birthday.</h2><pre><code>select
+  TNAME     name,
+  TSEX      sex,
+  TBIRTHDAY birthday
+from TEACHER
+union
+select
+  sname     name,
+  SSEX      sex,
+  SBIRTHDAY birthday
+from STUDENT;</code></pre><h2 id="–-32、查询所有“女”教师和“女”同学的name、sex和birthday"><a href="#–-32、查询所有“女”教师和“女”同学的name、sex和birthday" class="headerlink" title="– 32、查询所有“女”教师和“女”同学的name、sex和birthday."></a>– 32、查询所有“女”教师和“女”同学的name、sex和birthday.</h2><pre><code>select
+  TNAME     name,
+  TSEX      sex,
+  TBIRTHDAY birthday
+from TEACHER
+where TSEX = &apos;女&apos;
+union
+select
+  sname     name,
+  SSEX      sex,
+  SBIRTHDAY birthday
+from STUDENT
+where SSEX = &apos;女&apos;;</code></pre><h2 id="–-33、查询成绩比该课程平均成绩低的同学的成绩表。"><a href="#–-33、查询成绩比该课程平均成绩低的同学的成绩表。" class="headerlink" title="– 33、查询成绩比该课程平均成绩低的同学的成绩表。"></a>– 33、查询成绩比该课程平均成绩低的同学的成绩表。</h2><pre><code>SELECT A.*
+FROM SCORE A
+WHERE DEGREE &lt; (SELECT AVG(DEGREE)
+                FROM SCORE B
+                WHERE A.CNO = B.CNO);</code></pre><h2 id="–-34、查询所有任课教师的Tname和Depart"><a href="#–-34、查询所有任课教师的Tname和Depart" class="headerlink" title="– 34、查询所有任课教师的Tname和Depart."></a>– 34、查询所有任课教师的Tname和Depart.</h2><pre><code>select
+  TNAME,
+  DEPART
+from TEACHER a
+where exists(select *
+             from COURSE b
+         where a.TNO = b.TNO);</code></pre><h2 id="–-35、查询所有未讲课的教师的Tname和Depart"><a href="#–-35、查询所有未讲课的教师的Tname和Depart" class="headerlink" title="– 35、查询所有未讲课的教师的Tname和Depart."></a>– 35、查询所有未讲课的教师的Tname和Depart.</h2><pre><code>select
+  TNAME,
+  DEPART
+from TEACHER a
+where tno not in (select tno
+              from COURSE);</code></pre><h2 id="–-36、查询至少有2名男生的班号。"><a href="#–-36、查询至少有2名男生的班号。" class="headerlink" title="– 36、查询至少有2名男生的班号。"></a>– 36、查询至少有2名男生的班号。</h2><pre><code>select CLASS
+from STUDENT
+where SSEX = &apos;男&apos;
+group by CLASS
+having count(SSEX) &gt; 1;</code></pre><h2 id="–-37、查询Student表中不姓“王”的同学记录。"><a href="#–-37、查询Student表中不姓“王”的同学记录。" class="headerlink" title="– 37、查询Student表中不姓“王”的同学记录。"></a>– 37、查询Student表中不姓“王”的同学记录。</h2><pre><code>select *
+from STUDENT
+where SNAME not like &quot;王%&quot;;</code></pre><h2 id="–-38、查询Student表中每个学生的姓名和年龄。"><a href="#–-38、查询Student表中每个学生的姓名和年龄。" class="headerlink" title="– 38、查询Student表中每个学生的姓名和年龄。"></a>– 38、查询Student表中每个学生的姓名和年龄。</h2><pre><code>select
+  SNAME,
+  year(now()) - year(SBIRTHDAY)
+from STUDENT;</code></pre><h2 id="–-39、查询Student表中最大和最小的Sbirthday日期值。"><a href="#–-39、查询Student表中最大和最小的Sbirthday日期值。" class="headerlink" title="– 39、查询Student表中最大和最小的Sbirthday日期值。"></a>– 39、查询Student表中最大和最小的Sbirthday日期值。</h2><pre><code>select min(SBIRTHDAY) birthday
+from STUDENT
+union
+select max(SBIRTHDAY) birthday
+from STUDENT;</code></pre><h2 id="–-40、以班号和年龄从大到小的顺序查询Student表中的全部记录。"><a href="#–-40、以班号和年龄从大到小的顺序查询Student表中的全部记录。" class="headerlink" title="– 40、以班号和年龄从大到小的顺序查询Student表中的全部记录。"></a>– 40、以班号和年龄从大到小的顺序查询Student表中的全部记录。</h2><pre><code>select *
+from STUDENT
+order by CLASS desc, year(now()) - year(SBIRTHDAY) desc;</code></pre><h2 id="–-41、查询“男”教师及其所上的课程。"><a href="#–-41、查询“男”教师及其所上的课程。" class="headerlink" title="– 41、查询“男”教师及其所上的课程。"></a>– 41、查询“男”教师及其所上的课程。</h2><pre><code>select *
+from TEACHER, COURSE
+where TSEX = &apos;男&apos; and COURSE.TNO = TEACHER.TNO;</code></pre><h2 id="–-42、查询最高分同学的Sno、Cno和Degree列。"><a href="#–-42、查询最高分同学的Sno、Cno和Degree列。" class="headerlink" title="– 42、查询最高分同学的Sno、Cno和Degree列。"></a>– 42、查询最高分同学的Sno、Cno和Degree列。</h2><pre><code>select
+  sno,
+  CNO,
+  DEGREE
+from SCORE
+where DEGREE = (select max(DEGREE)
+                from SCORE);</code></pre><h2 id="–-43、查询和“李军”同性别的所有同学的Sname"><a href="#–-43、查询和“李军”同性别的所有同学的Sname" class="headerlink" title="– 43、查询和“李军”同性别的所有同学的Sname."></a>– 43、查询和“李军”同性别的所有同学的Sname.</h2><pre><code>select sname
+from STUDENT
+where SSEX = (select SSEX
+              from STUDENT
+              where SNAME = &apos;李军&apos;);</code></pre><h2 id="–-44、查询和“李军”同性别并同班的同学Sname"><a href="#–-44、查询和“李军”同性别并同班的同学Sname" class="headerlink" title="– 44、查询和“李军”同性别并同班的同学Sname."></a>– 44、查询和“李军”同性别并同班的同学Sname.</h2><pre><code>select sname
+from STUDENT
+where (SSEX, CLASS) = (select
+                         SSEX,
+                         CLASS
+                       from STUDENT
+                       where SNAME = &apos;李军&apos;);</code></pre><h2 id="–-45、查询所有选修“计算机导论”课程的“男”同学的成绩表"><a href="#–-45、查询所有选修“计算机导论”课程的“男”同学的成绩表" class="headerlink" title="– 45、查询所有选修“计算机导论”课程的“男”同学的成绩表"></a>– 45、查询所有选修“计算机导论”课程的“男”同学的成绩表</h2><pre><code>select *
+from SCORE, STUDENT
+where SCORE.SNO = STUDENT.SNO and SSEX = &apos;男&apos; and CNO = (
+  select CNO
+  from COURSE
+  where CNAME = &apos;计算机导论&apos;);</code></pre><h2 id="–-46、使用游标方式来同时查询每位同学的名字，他所选课程及成绩。"><a href="#–-46、使用游标方式来同时查询每位同学的名字，他所选课程及成绩。" class="headerlink" title="– 46、使用游标方式来同时查询每位同学的名字，他所选课程及成绩。"></a>– 46、使用游标方式来同时查询每位同学的名字，他所选课程及成绩。</h2><pre><code>declare
+ cursor student_cursor is
+  select S.SNO,S.SNAME,C.CNAME,SC.DEGREE as DEGREE
+  from STUDENT S, COURSE C, SCORE SC
+  where S.SNO=SC.SNO
+  and SC.CNO=C.CNO;
+
+  student_row student_cursor%ROWTYPE;
+
+begin
+  open student_cursor;
+   loop
+    fetch student_cursor INTO student_row;
+    exit when student_cursor%NOTFOUND;
+     dbms_output.put_line( student_row.SNO || &apos;&apos; || 
+
+student_row.SNAME|| &apos;&apos; || student_row.CNAME || &apos;&apos; ||
+
+student_row.DEGREE);
+   end loop;
+  close student_cursor;
+END;
+/ </code></pre><h2 id="–-47、-声明触发器指令，每当有同学转换班级时执行触发器显示当前和之前所在班级。"><a href="#–-47、-声明触发器指令，每当有同学转换班级时执行触发器显示当前和之前所在班级。" class="headerlink" title="– 47、 声明触发器指令，每当有同学转换班级时执行触发器显示当前和之前所在班级。"></a>– 47、 声明触发器指令，每当有同学转换班级时执行触发器显示当前和之前所在班级。</h2><pre><code>CREATE OR REPLACE TRIGGER display_class_changes 
+AFTER DELETE OR INSERT OR UPDATE ON student 
+FOR EACH ROW 
+WHEN (NEW.sno &gt; 0) 
+
+BEGIN 
+
+   dbms_output.put_line(&apos;Old class: &apos; || :OLD.class); 
+   dbms_output.put_line(&apos;New class: &apos; || :NEW.class); 
+END; 
+/ 
+
+
+Update student
+set class=95031
+where sno=109;</code></pre><h2 id="–-48、-删除已设置的触发器指令"><a href="#–-48、-删除已设置的触发器指令" class="headerlink" title="– 48、 删除已设置的触发器指令"></a>– 48、 删除已设置的触发器指令</h2><pre><code>DROP TRIGGER display_class_changes;</code></pre>
+      
+    </div>
+    
+    
+    
+    
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/databases/" rel="tag"><i class="fa fa-tag"></i> databases</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/25/MySql面试题集锦-持续更新中/" rel="next" title="MySql面试题集锦(持续更新中)">
+                <i class="fa fa-chevron-left"></i> MySql面试题集锦(持续更新中)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/touxiang.jpg" alt="许洋">
+            
+              <p class="site-author-name" itemprop="name">许洋</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/xuyanghn1994" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/weixin_40241667" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/luckykcgw/columns" target="_blank" title="zhihu">
+                      
+                        <i class="fa fa-fw fa-zhihu"></i>zhihu</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/5564401593/profile?topnav=1&wvr=6" target="_blank" title="weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="百度" target="_blank">百度</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.google.com" title="谷歌" target="_blank">谷歌</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#进入fuxi库"><span class="nav-number">1.</span> <span class="nav-text">进入fuxi库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建表tb-area"><span class="nav-number">2.</span> <span class="nav-text">创建表tb_area</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建表STUDENT"><span class="nav-number">3.</span> <span class="nav-text">创建表STUDENT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建表COURSE"><span class="nav-number">4.</span> <span class="nav-text">创建表COURSE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建表SCORE"><span class="nav-number">5.</span> <span class="nav-text">创建表SCORE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建表TEACHER"><span class="nav-number">6.</span> <span class="nav-text">创建表TEACHER</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入值-STUDENT表"><span class="nav-number">7.</span> <span class="nav-text">插入值 STUDENT表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入值COURSE表"><span class="nav-number">8.</span> <span class="nav-text">插入值COURSE表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入值SCORE表"><span class="nav-number">9.</span> <span class="nav-text">插入值SCORE表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入值TEACHER表"><span class="nav-number">10.</span> <span class="nav-text">插入值TEACHER表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-1、-查询Student表中的所有记录的Sname、Ssex和Class列。"><span class="nav-number">11.</span> <span class="nav-text">– 1、 查询Student表中的所有记录的Sname、Ssex和Class列。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-2、-查询教师所有的单位即不重复的Depart列。"><span class="nav-number">12.</span> <span class="nav-text">– 2、 查询教师所有的单位即不重复的Depart列。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-3、-查询Student表的所有记录。"><span class="nav-number">13.</span> <span class="nav-text">– 3、 查询Student表的所有记录。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-4、-查询Score表中成绩在60到80之间的所有记录。"><span class="nav-number">14.</span> <span class="nav-text">– 4、 查询Score表中成绩在60到80之间的所有记录。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-5、-查询Score表中成绩为85，86或88的记录。"><span class="nav-number">15.</span> <span class="nav-text">– 5、 查询Score表中成绩为85，86或88的记录。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-6、-查询Student表中“95031”班或性别为“女”的同学记录。"><span class="nav-number">16.</span> <span class="nav-text">– 6、 查询Student表中“95031”班或性别为“女”的同学记录。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-7、-以Class降序查询Student表的所有记录。"><span class="nav-number">17.</span> <span class="nav-text">– 7、 以Class降序查询Student表的所有记录。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-8、-以Cno升序、Degree降序查询Score表的所有记录。"><span class="nav-number">18.</span> <span class="nav-text">– 8、 以Cno升序、Degree降序查询Score表的所有记录。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-9、-查询“95031”班的学生人数。"><span class="nav-number">19.</span> <span class="nav-text">– 9、 查询“95031”班的学生人数。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-10、查询Score表中的最高分的学生学号和课程号。"><span class="nav-number">20.</span> <span class="nav-text">– 10、查询Score表中的最高分的学生学号和课程号。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-11、查询‘3-105’号课程的平均分。"><span class="nav-number">21.</span> <span class="nav-text">– 11、查询‘3-105’号课程的平均分。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-12、查询Score表中至少有5名学生选修的并以3开头的课程的平均分数。"><span class="nav-number">22.</span> <span class="nav-text">– 12、查询Score表中至少有5名学生选修的并以3开头的课程的平均分数。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-13、查询最低分大于70，最高分小于90的Sno列。"><span class="nav-number">23.</span> <span class="nav-text">– 13、查询最低分大于70，最高分小于90的Sno列。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-14、查询所有学生的Sname、Cno和Degree列。"><span class="nav-number">24.</span> <span class="nav-text">– 14、查询所有学生的Sname、Cno和Degree列。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-15、查询所有学生的Sno、Cname和Degree列。"><span class="nav-number">25.</span> <span class="nav-text">– 15、查询所有学生的Sno、Cname和Degree列。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-16、查询所有学生的Sname、Cname和Degree列。"><span class="nav-number">26.</span> <span class="nav-text">– 16、查询所有学生的Sname、Cname和Degree列。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-17、查询“95033”班所选课程的平均分。"><span class="nav-number">27.</span> <span class="nav-text">– 17、查询“95033”班所选课程的平均分。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-18、假设使用如下命令建立了一个grade表："><span class="nav-number">28.</span> <span class="nav-text">– 18、假设使用如下命令建立了一个grade表：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-现查询所有同学的Sno、Cno和rank列。"><span class="nav-number">29.</span> <span class="nav-text">– 现查询所有同学的Sno、Cno和rank列。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-19、查询选修“3-105”课程的成绩高于“109”号同学成绩的所有同学的记录。"><span class="nav-number">30.</span> <span class="nav-text">– 19、查询选修“3-105”课程的成绩高于“109”号同学成绩的所有同学的记录。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-20、查询score中选学一门以上课程的同学中分数为非最高分成绩的记录"><span class="nav-number">31.</span> <span class="nav-text">– 20、查询score中选学一门以上课程的同学中分数为非最高分成绩的记录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-21、查询成绩高于学号为“109”、课程号为“3-105”的成绩的所有记录。"><span class="nav-number">32.</span> <span class="nav-text">– 21、查询成绩高于学号为“109”、课程号为“3-105”的成绩的所有记录。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-22、查询和学号为108的同学同年出生的所有学生的Sno、Sname和Sbirthday列。"><span class="nav-number">33.</span> <span class="nav-text">– 22、查询和学号为108的同学同年出生的所有学生的Sno、Sname和Sbirthday列。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-23、查询“张旭“教师任课的学生成绩。"><span class="nav-number">34.</span> <span class="nav-text">– 23、查询“张旭“教师任课的学生成绩。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-24、查询选修某课程的同学人数多于5人的教师姓名。"><span class="nav-number">35.</span> <span class="nav-text">– 24、查询选修某课程的同学人数多于5人的教师姓名。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-25、查询95033班和95031班全体学生的记录。"><span class="nav-number">36.</span> <span class="nav-text">– 25、查询95033班和95031班全体学生的记录。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-26、查询存在有85分以上成绩的课程Cno"><span class="nav-number">37.</span> <span class="nav-text">– 26、查询存在有85分以上成绩的课程Cno.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-27、查询出“计算机系“教师所教课程的成绩表。"><span class="nav-number">38.</span> <span class="nav-text">– 27、查询出“计算机系“教师所教课程的成绩表。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-28、查询“计算机系”与“电子工程系“不同职称的教师的Tname和Prof"><span class="nav-number">39.</span> <span class="nav-text">– 28、查询“计算机系”与“电子工程系“不同职称的教师的Tname和Prof</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-29、查询选修编号为“3-105“课程且成绩至少高于选修编号为“3-245”的同学的Cno、Sno和Degree-并按Degree从高到低次序排序。"><span class="nav-number">40.</span> <span class="nav-text">– 29、查询选修编号为“3-105“课程且成绩至少高于选修编号为“3-245”的同学的Cno、Sno和Degree,并按Degree从高到低次序排序。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-30、查询选修编号为“3-105”且成绩高于选修编号为“3-245”课程的同学的Cno、Sno和Degree"><span class="nav-number">41.</span> <span class="nav-text">– 30、查询选修编号为“3-105”且成绩高于选修编号为“3-245”课程的同学的Cno、Sno和Degree.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-31、查询所有教师和同学的name、sex和birthday"><span class="nav-number">42.</span> <span class="nav-text">– 31、查询所有教师和同学的name、sex和birthday.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-32、查询所有“女”教师和“女”同学的name、sex和birthday"><span class="nav-number">43.</span> <span class="nav-text">– 32、查询所有“女”教师和“女”同学的name、sex和birthday.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-33、查询成绩比该课程平均成绩低的同学的成绩表。"><span class="nav-number">44.</span> <span class="nav-text">– 33、查询成绩比该课程平均成绩低的同学的成绩表。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-34、查询所有任课教师的Tname和Depart"><span class="nav-number">45.</span> <span class="nav-text">– 34、查询所有任课教师的Tname和Depart.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-35、查询所有未讲课的教师的Tname和Depart"><span class="nav-number">46.</span> <span class="nav-text">– 35、查询所有未讲课的教师的Tname和Depart.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-36、查询至少有2名男生的班号。"><span class="nav-number">47.</span> <span class="nav-text">– 36、查询至少有2名男生的班号。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-37、查询Student表中不姓“王”的同学记录。"><span class="nav-number">48.</span> <span class="nav-text">– 37、查询Student表中不姓“王”的同学记录。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-38、查询Student表中每个学生的姓名和年龄。"><span class="nav-number">49.</span> <span class="nav-text">– 38、查询Student表中每个学生的姓名和年龄。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-39、查询Student表中最大和最小的Sbirthday日期值。"><span class="nav-number">50.</span> <span class="nav-text">– 39、查询Student表中最大和最小的Sbirthday日期值。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-40、以班号和年龄从大到小的顺序查询Student表中的全部记录。"><span class="nav-number">51.</span> <span class="nav-text">– 40、以班号和年龄从大到小的顺序查询Student表中的全部记录。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-41、查询“男”教师及其所上的课程。"><span class="nav-number">52.</span> <span class="nav-text">– 41、查询“男”教师及其所上的课程。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-42、查询最高分同学的Sno、Cno和Degree列。"><span class="nav-number">53.</span> <span class="nav-text">– 42、查询最高分同学的Sno、Cno和Degree列。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-43、查询和“李军”同性别的所有同学的Sname"><span class="nav-number">54.</span> <span class="nav-text">– 43、查询和“李军”同性别的所有同学的Sname.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-44、查询和“李军”同性别并同班的同学Sname"><span class="nav-number">55.</span> <span class="nav-text">– 44、查询和“李军”同性别并同班的同学Sname.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-45、查询所有选修“计算机导论”课程的“男”同学的成绩表"><span class="nav-number">56.</span> <span class="nav-text">– 45、查询所有选修“计算机导论”课程的“男”同学的成绩表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-46、使用游标方式来同时查询每位同学的名字，他所选课程及成绩。"><span class="nav-number">57.</span> <span class="nav-text">– 46、使用游标方式来同时查询每位同学的名字，他所选课程及成绩。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-47、-声明触发器指令，每当有同学转换班级时执行触发器显示当前和之前所在班级。"><span class="nav-number">58.</span> <span class="nav-text">– 47、 声明触发器指令，每当有同学转换班级时执行触发器显示当前和之前所在班级。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–-48、-删除已设置的触发器指令"><span class="nav-number">59.</span> <span class="nav-text">– 48、 删除已设置的触发器指令</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">许洋</span>
+<!--
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">3.2k</span>
+  
+ -->
+</div>
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+-->
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共3.2k字</span>
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+<span id="busuanzi_container_site_uv">
+  本站总访问量<span id="busuanzi_value_site_uv"></span>次
+</span>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("", "");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
